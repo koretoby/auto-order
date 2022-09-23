@@ -1,14 +1,12 @@
-#food auto order
-
 from ast import Try
 
 
 class soldOutError(Exception):
    pass
 #try:
-food_menu_1 = 1
-food_menu_2 = 2
-food_menu_3 = 3
+#food_menu_1 = 1
+#food_menu_2 = 2
+#food_menu_3 = 3
 menu_1_leftovers= 100 #number of leftovers
 menu_2_leftovers= 100 #number of leftovers
 menu_3_leftovers= 100 #number of leftovers
@@ -16,10 +14,13 @@ waiting = 1
 while(True):
     
       print("[food_menu_1:1] [food_menu_2:2][food_menu_3:3]")
-      food = int(input("Which menu do you want to choose?"))
+      food = int(input("Which menu do you want to order?"))
+      print()
+      print()
+
       if food == 1:
         try:
-         print("[leftover_food : {0}]".format(menu_1_leftovers))
+         print("[leftover food : {0}]".format(menu_1_leftovers))
          order = int(input("How many would you like to order?"))
          if order > menu_1_leftovers:
             print("We don't have enough ingredients.")
@@ -29,19 +30,22 @@ while(True):
             menu_1_leftovers -= order 
             print("Thank you.","Please wait a moment,","please")
             print()
-            print()
+            
             if menu_1_leftovers == 0:
                raise soldOutError
+               change 
+        
         except ValueError:
             print("You have entered an invalid value")
             print()
             print()
         except soldOutError:
             print("Soldout, Please choose a different menu")
+            print()
            
       elif food == 2:
         try:
-         print("[leftover_food : {0}]".format(menu_2_leftovers))
+         print("[leftover food : {0}]".format(menu_2_leftovers))
          order = int(input("How many would you like to order?"))
          if order > menu_2_leftovers:
               print("We don't have enough ingredients.")
@@ -51,7 +55,7 @@ while(True):
               menu_2_leftovers -= order 
               print("Thank you.","Please wait a moment,","please")
               print()
-              print()
+              
               if menu_2_leftovers == 0:
                   raise soldOutError
         except ValueError:
@@ -60,30 +64,38 @@ while(True):
             print()
         except soldOutError:
             print("Soldout, Please choose a different menu")
+            print()
            
     
       elif food == 3:
         try:
-         print("[leftover_food : {0}]".format(menu_3_leftovers))
+         print("[leftover food : {0}]".format(menu_3_leftovers))
          order = int(input("How many would you like to order?"))
          if order > menu_3_leftovers:
               print("We don't have enough ingredients.")
+              print()
+              print()
+         
          else:
                print("[waiting number : {0}] You have ordered {1}".format(waiting,order))
                waiting += 1
                menu_3_leftovers -= order 
                print("Thank you.","Please wait a moment,","please")
                print()
-               print()
+               
                if menu_3_leftovers == 0:
                   raise soldOutError
+                
+                  
         except ValueError:
             print("You have entered an invalid value")
             print()
             print()
         except soldOutError:
             print("Soldout, Please choose a different menu")
+            print()
            
       else:
          print("Menu number {0} does not exist.".format(food))
          print()
+
